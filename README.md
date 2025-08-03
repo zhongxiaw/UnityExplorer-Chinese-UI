@@ -64,7 +64,7 @@
 
 ## Unity编辑器集成
 
-1. 下载[编辑器版](https://github.com/sinai-dev/UnityExplorer/releases/latest/download/UnityExplorer.Editor.zip)
+1. 下载[编辑器版]([https://github.com/sinai-dev/UnityExplorer/releases/latest/download/UnityExplorer.Editor.zip](https://github.com/zhongxiaw/UnityExplorer-Chinese-UI/blob/886e67d5131fcd7e50736d67e0bb36a4ad0f0063/Release/UnityExplorer.Editor.zip))
 2. 通过Package Manager导入或手动拖入Assets文件夹
 3. 将`Runtime/UnityExplorer`预制体拖入场景，或添加`Explorer Editor Behaviour`脚本
 
