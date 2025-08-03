@@ -646,11 +646,11 @@ Doorstop example:
         {
             Dropdown drop = Panel.HelpDropdown;
 
-            helpDict.Add("Help", "");
-            helpDict.Add("Usings", HELP_USINGS);
-            helpDict.Add("REPL", HELP_REPL);
-            helpDict.Add("Classes", HELP_CLASSES);
-            helpDict.Add("Coroutines", HELP_COROUTINES);
+            helpDict.Add("帮助", "");
+            helpDict.Add("范围", HELP_USINGS);
+            helpDict.Add("回复", HELP_REPL);
+            helpDict.Add("种类", HELP_CLASSES);
+            helpDict.Add("协程", HELP_COROUTINES);
 
             foreach (KeyValuePair<string, string> opt in helpDict)
                 drop.options.Add(new Dropdown.OptionData(opt.Key));
@@ -669,77 +669,83 @@ Doorstop example:
         }
 
 
-        internal const string STARTUP_TEXT = @"<color=#5d8556>// 欢迎使用 UnityExplorer C# 控制台!
+        internal const string STARTUP_TEXT = @"<color=#5d8556>
+// 欢迎使用 UnityExplorer C# 控制台!
 
 // 建议在使用此工具时使用日志面板（或控制台日志窗口）.
 // 使用“帮助”下拉菜单查看有关如何使用控制台的详细示例。
 
 // 要在启动时自动执行脚本，请将脚本放在'sinai-dev-UnityExplorer\Scripts\startup.cs'</color>";
 
-        internal const string HELP_USINGS = @"// 您可以将 using 指令添加到任何命名空间，但必须编译才能生效.
+        internal const string HELP_USINGS = @"
+// 您可以将 using 指令添加到任何命名空间，但必须编译才能生效.
 // 它会一直有效，直到您重置控制台.
-using UnityEngine.UI;
+         using UnityEngine.UI;
 
-// To see your current usings, use the ""GetUsing();"" helper.
-// Note: You cannot add usings and evaluate REPL at the same time.";
+// 要查看您当前的使用情况，请使用 ""GetUsing();"" 助手.
+// 注意：您不能同时添加using和评估REPL.";
 
-        internal const string HELP_REPL = @"/* REPL (Read-Evaluate-Print-Loop) is a way to execute code immediately.
- * REPL code cannot contain any using directives or classes.
- * The return value of the last line of your REPL will be printed to the log.
- * Variables defined in REPL will exist until you Reset the console.
+        internal const string HELP_REPL = @"//
+ * REPL（读取-评估-打印循环）是一种立即执行代码的方法.
+ * REPL代码不能包含任何using指令或类.
+ * REPL最后一行的返回值将打印到日志中.
+ * 在重置控制台之前，REPL中定义的变量将一直存在.
 */
 
-// eg: This code would print 'Hello, World!', and then print 6 as the return value.
-Log(""Hello, world!"");
-var x = 5;
-++x;
+// 例如：这段代码将打印“Hello，World！'，然后打印6作为返回值.
+     Log(""Hello, world!"");
+     var x = 5;
+     ++x;
 
-/* The following helpers are available in REPL mode:
- * CurrentTarget;     - System.Object, the target of the active Inspector tab
- * AllTargets;        - System.Object[], the targets of all Inspector tabs
- * Log(obj);          - prints a message to the console log
- * Inspect(obj);      - inspect the object with the Inspector
- * Inspect(someType); - inspect a Type with static reflection
- * Start(enumerator); - Coroutine, starts the IEnumerator as a Coroutine, and returns the Coroutine.
- * Stop(coroutine);   - stop the Coroutine ONLY if it was started with Start(ienumerator).
- * Copy(obj);         - copies the object to the UnityExplorer Clipboard
- * Paste();           - System.Object, the contents of the Clipboard.
- * GetUsing();        - prints the current using directives to the console log
- * GetVars();         - prints the names and values of the REPL variables you have defined
- * GetClasses();      - prints the names and members of the classes you have defined
- * help;              - the default REPL help command, contains additional helpers.
+/* 以下助手在REPL模式下可用:
+  * CurrentTarget;     - System.Object，当前活动“检查器”标签页的目标对象  
+  * AllTargets;        - System.Object[]，所有“检查器”标签页的目标对象数组  
+  * Log(obj);          - 将消息打印到控制台日志  
+  * Inspect(obj);      - 使用“检查器”查看该对象  
+  * Inspect(someType); - 使用静态反射查看某个类型  
+  * Start(enumerator); - 启动一个 IEnumerator 协程，并返回该 Coroutine  
+  * Stop(coroutine);   - 仅当使用 Start(ienumerator) 启动时才可停止该协程  
+  * Copy(obj);         - 将对象复制到 UnityExplorer 的剪贴板  
+  * Paste();           - System.Object，剪贴板中的内容  
+  * GetUsing();        - 打印当前的 using 指令到控制台日志  
+  * GetVars();         - 打印你在 REPL 中定义的变量及其值  
+  * GetClasses();      - 打印你定义的类及其成员  
+  * help;              - 默认的 REPL 帮助命令，包含其他辅助函数  
+
 */";
 
-        internal const string HELP_CLASSES = @"// Classes you compile will exist until the application closes.
-// You can soft-overwrite a class by compiling it again with the same name. The old class will still technically exist in memory.
+        internal const string HELP_CLASSES = @"
+// 您编译的类将一直存在，直到应用程序关闭.
+// 您可以通过用相同的名称重新编译类来软覆盖它。旧类在技术上仍将存在于内存中.
 
-// Compiled classes can be accessed from both inside and outside this console.
-// Note: in IL2CPP, you must declare a Namespace to inject these classes with ClassInjector or it will crash the game.
+// 编译的类可以从该控制台内部和外部访问.
+// 注意：在IL2CPP中，您必须声明一个命名空间才能用ClassInjector注入这些类，否则会导致游戏崩溃.
 
-public class HelloWorld
-{
-    public static void Main()
+     public class HelloWorld
     {
+      public static void Main()
+       {
         UnityExplorer.ExplorerCore.Log(""Hello, world!"");
-    }
-}
+         }
+     }
 
 // 在 REPL 中，您可以调用上面的示例方法 ""HelloWorld.Main();""
 // 注意：编译器不允许你同时运行 REPL 代码和定义类.
 
-// In REPL, use the ""GetClasses();"" helper to see the classes you have defined since the last Reset.";
+// 在REPL中，使用“”GetClasses（）；“”帮助查看自上次重置以来定义的类.";
 
-        internal const string HELP_COROUTINES = @"// 要直接启动协程，请使用 ""Start(SomeCoroutine());"" 在 REPL 模式下.
+        internal const string HELP_COROUTINES = @"
+// 要直接启动协程，请使用 ""Start(SomeCoroutine());"" 在 REPL 模式下.
 
 // 要声明协程，您需要单独编译它。 例如:
-public class MyCoro
-{
-    public static IEnumerator Main()
-    {
-        yield return null;
-        UnityExplorer.ExplorerCore.Log(""Hello, world after one frame!"");
-    }
-}
+        public class MyCoro
+       {
+          public static IEnumerator Main()
+         {
+           yield return null;
+            UnityExplorer.ExplorerCore.Log(""Hello, world after one frame!"");
+            }
+         }
 // 要在 REPL 中运行这个协程，它看起来像 ""Start(MyCoro.Main());""";
 
         #endregion

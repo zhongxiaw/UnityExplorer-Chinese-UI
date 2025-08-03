@@ -206,11 +206,11 @@ namespace UnityExplorer.UI.Panels
             AddSpacer(5);
 
             string instructions = @"控件:
-- WASD / Arrows: Movement
-- Space / PgUp: 向上移动
-- LeftCtrl / PgDown: 向下移动
-- 鼠标右键: 自由观看
-- Shift: 超级速度";
+        - WASD / 方向键: 进行移动
+        - Space / PgUp: 向上移动
+        - LeftCtrl / PgDown: 向下移动
+        - 鼠标右键: 自由观看
+        - Shift: 超级速度";
 
             Text instructionsText = UIFactory.CreateLabel(ContentRoot, "Instructions", instructions, TextAnchor.UpperLeft);
             UIFactory.SetLayoutElement(instructionsText.gameObject, flexibleWidth: 9999, flexibleHeight: 9999);
