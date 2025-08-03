@@ -12,13 +12,13 @@
   ✨ 基于 <a href="https://github.com/sinai-dev/UniverseLib">UniverseLib</a> 驱动
 </p>
 
-# 版本发布 [![](https://img.shields.io/github/downloads/sinai-dev/UnityExplorer/total.svg)](../../releases)
+# 版本发布（源已停止维护） [![](https://img.shields.io/github/downloads/sinai-dev/UnityExplorer/total.svg)](../../releases)
 
 [![](https://img.shields.io/github/release/sinai-dev/UnityExplorer.svg?label=当前版本)](../../releases/latest) [![](https://img.shields.io/github/workflow/status/sinai-dev/UnityExplorer/Build%20UnityExplorer)](https://github.com/sinai-dev/UnityExplorer/actions) [![](https://img.shields.io/github/downloads/sinai-dev/UnityExplorer/latest/total.svg)](../../releases/latest)
 
 ⚡ Thunderstore平台下载: [BepInEx Mono版](https://thunderstore.io/package/sinai-dev/UnityExplorer) | [BepInEx IL2CPP版](https://gtfo.thunderstore.io/package/sinai-dev/UnityExplorer_IL2CPP) | [MelonLoader IL2CPP版](https://boneworks.thunderstore.io/package/sinai-dev/UnityExplorer_IL2CPP_ML)
 
-## 发布周期
+## 发布周期（源已停止维护）
 
 每周最多发布一次新版本，通常安排在周末。
 
@@ -57,14 +57,14 @@
 | ✅ [下载](https://github.com/sinai-dev/UnityExplorer/releases/latest/download/UnityExplorer.Standalone.IL2CPP.zip) | ✅ [下载](https://github.com/sinai-dev/UnityExplorer/releases/latest/download/UnityExplorer.Standalone.Mono.zip) | 
 
 独立版需手动加载依赖项：
-1. 确保已加载必要库文件（UniverseLib、HarmonyX和MonoMod），可从[编辑器版](https://github.com/sinai-dev/UnityExplorer/releases/latest/download/UnityExplorer.Editor.zip)获取
+1. 确保已加载必要库文件（UniverseLib、HarmonyX和MonoMod），可从[编辑器版](Release/UnityExplorer.Editor.zip)获取
 2. IL2CPP版本需额外加载Il2CppAssemblyUnhollower
 3. 调用 `UnityExplorer.ExplorerStandalone.CreateInstance()` 初始化
 4. 可选订阅 `ExplorerStandalone.OnLog` 事件处理日志
 
 ## Unity编辑器集成
 
-1. 下载[编辑器版]([https://github.com/sinai-dev/UnityExplorer/releases/latest/download/UnityExplorer.Editor.zip](https://github.com/zhongxiaw/UnityExplorer-Chinese-UI/blob/886e67d5131fcd7e50736d67e0bb36a4ad0f0063/Release/UnityExplorer.Editor.zip))
+1. 下载[编辑器版](Release/UnityExplorer.Editor.zip)
 2. 通过Package Manager导入或手动拖入Assets文件夹
 3. 将`Runtime/UnityExplorer`预制体拖入场景，或添加`Explorer Editor Behaviour`脚本
 
