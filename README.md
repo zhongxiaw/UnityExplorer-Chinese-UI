@@ -125,8 +125,9 @@ UnityExplorer.InspectorManager.Inspect(typeof(某类));
 
 # 构建说明
 
-1. 运行`build.ps1` PowerShell脚本
-2. 构建产物位于`Release`文件夹
+1. 运行`全部构建.ps1` PowerShell脚本，全部生成打包。
+2. 运行`选择构建.ps1` PowerShell脚本，选择性生成产物。
+3. 构建产物位于`Release`文件夹
 
 # 版权声明
 
